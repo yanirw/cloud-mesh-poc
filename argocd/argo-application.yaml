@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/yanirw/cloud-mesh-poc'
     targetRevision: HEAD
-    path: .
+    path: ./app
   destination:
     server: 'https://kubernetes.default.svc'
   syncPolicy:
