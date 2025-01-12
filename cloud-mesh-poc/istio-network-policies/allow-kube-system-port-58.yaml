@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-kube-system-port-58
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: kube-system
+  rules:
+  - to:
+    - operation:
+        ports: ["58"]

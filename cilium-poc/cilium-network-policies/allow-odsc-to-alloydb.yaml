@@ -1,0 +1,38 @@
+# Allow odsc-cards to access AlloyDB
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-odsc-cards-to-alloydb
+  namespace: odsc-cards
+spec:
+  description: "Allow odsc-cards service to access AlloyDB"
+  endpointSelector:
+    matchLabels:
+      app: odsc-cards
+  egress:
+  - toCIDR:
+    - "10.6.112.2/32"
+    toPorts:
+    - ports:
+      - port: "5432"
+        protocol: TCP
+---
+# Allow odsc-accounts to access AlloyDB
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-odsc-accounts-to-alloydb
+  namespace: odsc-accounts
+spec:
+  description: "Allow odsc-accounts service to access AlloyDB"
+  endpointSelector:
+    matchLabels:
+      app: odsc-accounts
+  egress:
+  - toCIDR:
+    - "10.6.112.2/32"
+    toPorts:
+    - ports:
+      - port: "5432"
+        protocol: TCP
+

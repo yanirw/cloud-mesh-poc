@@ -1,0 +1,32 @@
+apiVersion: v2
+name: cloud-mesh
+version: 0.1.0
+dependencies:
+  - name: bff-accounts
+    version: 0.1.0
+    repository: file://charts/bff-accounts
+  - name: bff-cards
+    version: 0.1.0
+    repository: file://charts/bff-cards
+  - name: odsc-accounts
+    version: 0.1.0
+    repository: file://charts/odsc-accounts
+  - name: odsc-cards
+    version: 0.1.0
+    repository: file://charts/odsc-cards
+  - name: server-a
+    version: 0.1.0
+    repository: file://charts/server-a
+  - name: server-b
+    version: 0.1.0
+    repository: file://charts/server-b
+  - name: server-c
+    version: 0.1.0
+    repository: file://charts/server-c
+  - name: service_d
+    version: 0.1.0
+    repository: file://charts/service_d
+  - name: service_e
+    version: 0.1.0
+    repository: file://charts/service_e
+

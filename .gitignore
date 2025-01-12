@@ -1,0 +1,30 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore Terraform crash logs
+crash.log
+
+# Ignore Terraform plan files
+*.tfplan
+
+# Ignore Terraform provider plugins
+**/.terraform/
+
+# Ignore Terraform lock files
+**/.terraform.lock.hcl
+
+# Ignore other common files
+.DS_Store
+*.log
+*.bak
+*.tmp
+*.swp
+*.backup
+*.orig
+*~
+.idea/
+.vscode/
+.project
+.tmproj
+*.tmproj

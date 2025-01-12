@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-infra-gateways-to-cards
+  namespace: infra
+spec:
+  selector:
+    matchLabels:
+      app: dcmg-cards
+  rules:
+  - to:
+    - operation:
+        methods: ["GET", "POST", "PUT", "DELETE"]
+    when:
+    - key: request.headers[namespace]
+      values: ["cards"]

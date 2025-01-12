@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "odsc-accounts.fullname" . }}-test-connection"
+  labels:
+    {{- include "odsc-accounts.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "odsc-accounts.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

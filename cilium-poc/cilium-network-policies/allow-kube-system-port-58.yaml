@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: allow-kube-system-port-58
+spec:
+  description: "Allow kube-system namespace to access all namespaces on port 58 for health and metrics"
+  endpointSelector: {}
+  ingress:
+  - fromEndpoints:
+      - matchLabels:
+          io.kubernetes.pod.namespace: "kube-system"
+    toPorts:
+    - ports:
+        - port: "58"
+          protocol: TCP
+

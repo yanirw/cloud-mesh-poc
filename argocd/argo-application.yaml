@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloud-mesh
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/yanirw/cloud-mesh-poc'
+    targetRevision: HEAD
+    path: .
+  destination:
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-service-b-to-odsc-cards
+  namespace: cards
+spec:
+  description: "Allow Service B in the CARDS namespace to communicate with odsc-cards service"
+  endpointSelector:
+    matchLabels:
+      app: service-b
+  egress:
+  - toEndpoints:
+      matchLabels:
+        app: odsc-cards
+        namespace: odsc-cards
+

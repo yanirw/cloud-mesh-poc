@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-infra-gateways-to-cards
+  namespace: infra
+spec:
+  description: "Allow gateway communication with backend services in the CARDS namespace"
+  endpointSelector:
+    matchLabels:
+      app: dcmg-cards
+  egress:
+  - toEndpoints:
+      matchLabels:
+        app: bff-cards
+        namespace: cards
+

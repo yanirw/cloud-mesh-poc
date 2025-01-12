@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-infra-gateways-to-accounts
+  namespace: infra
+spec:
+  description: "Allow gateway communication with backend services in the ACCOUNTS namespace"
+  endpointSelector:
+    matchLabels:
+      app: dcmg-accounts
+  egress:
+  - toEndpoints:
+      matchLabels:
+        app: bff-accounts
+        namespace: accounts
+

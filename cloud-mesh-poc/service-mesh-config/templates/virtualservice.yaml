@@ -1,0 +1,28 @@
+{{- range .Values.gateways }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ .serviceName }}
+  namespace: {{ $.Values.defaultNamespace }}
+spec:
+  hosts:
+  - {{ .serviceName }}.{{ $.Values.defaultNamespace }}.svc.cluster.local
+  http:
+  - match:
+    - headers:
+        scenario:
+          exact: "true"
+    route:
+    - destination:
+        host: service-a.{{ $.Values.defaultNamespace }}.svc.cluster.local
+        subset: v2
+        port:
+          number: 80
+  - route:
+    - destination:
+        host: service-a.{{ $.Values.defaultNamespace }}.svc.cluster.local
+        subset: v1
+        port:
+          number: 80
+---
+{{- end }}

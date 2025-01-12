@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-service-d-to-jfrog
+  namespace: accounts
+spec:
+  description: "Allow Service D in the ACCOUNTS namespace to access JFrog"
+  endpointSelector:
+    matchLabels:
+      app: service-d
+  egress:
+  - toEntities:
+      - world
+  - toFQDNs:
+      - matchName: jfrog.com
+
