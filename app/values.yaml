@@ -4,7 +4,7 @@ bff-accounts:
 
 bff-cards:
   image:
-    tag: 1.0.3
+    tag: 1.0.4
 
 odsc-accounts:
   image:
@@ -12,19 +12,19 @@ odsc-accounts:
 
 odsc-cards:
   image:
-    tag: 1.0.3
+    tag: 1.0.4
 
 server-a:
   image:
-    tag: 1.0.3
+    tag: 1.0.4
 
 server-b:
   image:
-    tag: 1.0.3
+    tag: 1.0.4
 
 server-c:
   image:
-    tag: 1.0.3
+    tag: 1.0.4
 
 service-d:
   image:
