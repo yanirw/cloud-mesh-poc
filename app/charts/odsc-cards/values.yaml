@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # Namespace to deploy the resources
-namespace: "odsec-cards"
+namespace: "odsc-cards"
 
 # This will set the replicaset count
 replicaCount: 1
