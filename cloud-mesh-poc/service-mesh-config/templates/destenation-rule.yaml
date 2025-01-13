@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: bff-accounts-dr
+  namespace: infra
+spec:
+  host: bff-accounts
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN

@@ -1,28 +1,19 @@
-{{- range .Values.gateways }}
-apiVersion: networking.istio.io/v1beta1
+apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: {{ .serviceName }}
-  namespace: {{ $.Values.defaultNamespace }}
+  name: dcmg-accounts-vs
+  namespace: infra
 spec:
   hosts:
-  - {{ .serviceName }}.{{ $.Values.defaultNamespace }}.svc.cluster.local
+  - cards.dgcp.cloud
+  gateways:
+  - dcmg-accounts-gateway
   http:
   - match:
-    - headers:
-        scenario:
-          exact: "true"
+    - uri:
+        prefix: /data
     route:
     - destination:
-        host: service-a.{{ $.Values.defaultNamespace }}.svc.cluster.local
-        subset: v2
+        host: bff-accounts
         port:
-          number: 80
-  - route:
-    - destination:
-        host: service-a.{{ $.Values.defaultNamespace }}.svc.cluster.local
-        subset: v1
-        port:
-          number: 80
----
-{{- end }}
+          number: 5000
