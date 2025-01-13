@@ -23,10 +23,10 @@ dependencies:
   - name: server-c
     version: 0.1.0
     repository: file://charts/server-c
-  - name: service_d
+  - name: service-d
     version: 0.1.0
-    repository: file://charts/service_d
-  - name: service_e
+    repository: file://charts/service-d
+  - name: service-e
     version: 0.1.0
-    repository: file://charts/service_e
+    repository: file://charts/servic-e
 
