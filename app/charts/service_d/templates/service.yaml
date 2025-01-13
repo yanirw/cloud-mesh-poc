@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "service_d.fullname" . }}
+  name: {{ include "service-d.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "service_d.labels" . | nindent 4 }}
+    {{- include "service-d.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,4 +13,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "service_d.selectorLabels" . | nindent 4 }}
+    {{- include "service-d.selectorLabels" . | nindent 4 }}
